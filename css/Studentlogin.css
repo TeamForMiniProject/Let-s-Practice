@@ -1,0 +1,34 @@
+body{
+    margin:0px;
+    padding:0px;
+    background-color:powderblue;
+}
+.container{
+    border: 2px solid #2b95ba;;
+margin: 225px 459px;
+padding: 35px 73px;
+border-radius: 10px;
+width: 29%;
+cursor: pointer;
+
+ }
+ .form-group input,td,select{
+    text-align: center;
+display: block;
+padding: 14px;
+width: 450px;
+margin-bottom: 12px;
+border: 2px solid black;     
+ }
+  
+ .container h1{
+     text-align: center;
+ }
+ .container button{
+     display: block;
+     width:30%;
+     margin:auto;
+ }
+ .container.btn:hover{
+        color:peru;
+ }
