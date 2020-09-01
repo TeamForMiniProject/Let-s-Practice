@@ -1,3 +1,10 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
 body{
     color:white;
     margin:0px;
@@ -6,10 +13,7 @@ body{
 }
 
 .left{
-    display: inline-block;
-    position:absolute;
-    left: 34px;
-    top: 22px
+    
     /* border: 2px solid red; */
 }
 .mid{
@@ -24,6 +28,7 @@ body{
     top: 22px;
     /* border: 2px solid yellow; */
 }
+
 .navbar li{
     display: inline-block;
     font-size:20px
@@ -62,4 +67,82 @@ h1{
      margin: 220px auto;
      font-size:101px
    
+}
+.show-btn {
+    position: fixed;
+    top: 20px;
+    left: 50px;
+    color: white;
+    font-size: 30px;
+
+}
+#chk{
+    display: none;
+}
+.hide-btn,.show-btn{
+    opacity: 0;
+}
+
+
+
+
+@media (max-width:1300px){
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        background-color:gray ;
+        left: -100%;
+        list-style: none;
+        z-index: 10;
+        transition: .7s;
+    }
+    .navbar li{
+        display: block;
+        border-bottom: 2px solid rgba(255, 255,255,.1);
+        transition: .4s;
+        
+        
+    }
+    .navbar li a{
+        display: block;
+        font-size: 25px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .navbar li:hover{
+        border-left: 10px;
+        transition:.7s;
+    }
+    .hide-btn{
+        font-size: 30px;
+        margin-left: 20px;
+        margin-top: 20px;
+        
+    }
+    .show-btn,.hide-btn{
+        opacity: 1;
+    }
+    .navbar li:hover{
+        border-left: 10px solid white;
+    }
+    #chk:checked ~ .navbar{
+        left: 0;
+    }
+    h1{
+        /* border: 2px solid red; */
+        display: block;
+        width:62%;
+         margin: 220px auto;
+         font-size:60px;
+       
+    }
+    @media(max-width: 600px){
+        .btn{
+            display: block;
+            margin: 10px;
+        }
+    }
 }
