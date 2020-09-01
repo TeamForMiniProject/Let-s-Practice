@@ -1,18 +1,27 @@
 
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    
+
+}
 .container{
-    border: 2px solid whitesmoke;;
-margin: 225px 459px;
-padding: 35px 73px;
-border-radius: 10px;
-width: 29%;
-cursor: pointer;
+    border: 2px solid whitesmoke;
+    max-width: 1200px;
+    margin: 15% auto;
+    padding: 35px 50px;
+    border-radius: 10px;
+    width: 29%;
+    cursor: pointer;
+
 
  }
  .form-group input{
     text-align: center;
 display: block;
 padding: 14px;
-width: 450px;
+width: 95%;
 margin-bottom: 12px;
 border: 2px solid whitesmoke;     
  }
@@ -27,4 +36,15 @@ border: 2px solid whitesmoke;
  }
  .container.btn:hover{
         color:peru;
+ }
+ @media(max-width:1050px){
+    .container{
+        border: 2px solid whitesmoke;
+        max-width: 1200px;
+        margin: 15% auto;
+        padding: 35px 50px;
+        border-radius: 10px;
+        width: 80%;
+        cursor: pointer;
+    
  }
