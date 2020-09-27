@@ -20,7 +20,7 @@
         <h1>Please Enter your Details</h1>
         <form action="" method="post">
             <div class="form-group">
-                <input type="text" name="" id="" placeholder="Roll No.">
+                <input type="text" name="" id="" placeholder="Enter your Roll No">
             </div>
             <td> <b> Please! Choose std</b></td>
             <div class="form-group1">
