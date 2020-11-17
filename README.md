@@ -12,7 +12,7 @@ Group No:
 
 
 # Project Mentor:
-Mr. Anand Parkash Gupta And Mrs. Ruchi Gupta 
+Mrs. Ruchi Gupta 
 
 # About the Project:     
 This project is helpful for organizing online programming assessments ,multiple choice question . After Completion of the project we can take online quiz , subject type question . 
