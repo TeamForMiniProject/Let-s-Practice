@@ -11,7 +11,7 @@
     body{
     margin:0px;
     padding:0px;
-    background : url('images/adminback01.jpg'); 
+     background-image: url('images/adminback01.jpg');
 }
 h2{
     text-align:center;
@@ -68,7 +68,7 @@ label{
 <form action="adminlogin.php" name="f1" method="POST">
 <br><br><br>
 
-<h2>Login with your credentials:</h2>
+<h2>Admin Login Here:</h2>
 <br><br><br><br>
 
 <label for="username">Username</label><br><br>
@@ -84,13 +84,6 @@ label{
           <span class="focus-input100"></span>
 </div>
 <br><br>
-<div class="input-user">
-<!-- <label for="userType">I'm a :</label> -->
-<span class="check1">I'm A :</span>
-<input type="radio" name="usertype" value="student" class="custom-radio" requireed>&nbsp; <span class="check"> Student |</span>
-<input type="radio" name="usertype" value="teacher" class="custom-radio" requireed>&nbsp; <span class="check">teacher |</span>
-<input type="radio" name="usertype" value="admin" class="custom-radio" requireed>&nbsp; <span class="check">admin </span>
-</div>
 <br><br>
 <div class="input-btn">
           <button class="btn100" type="submit" name="login">
@@ -102,49 +95,28 @@ label{
 </form>
 </body>
 </html>
-<?php
-include('connection.php');
+<?php 
+include_once 'dbConnection.php';
 if(isset($_POST['login'])){
-    $username = $_POST['un'];
-    $password = $_POST['ps'];
-    $usertype = $_POST['usertype'];
-    $qry="SELECT * FROM `registration` WHERE `username`='$username' AND `password`='$password' AND `usertype`='$usertype'";
-    $run = mysqli_query($con,$qry);
-    // it return the number of row
-    $row = mysqli_num_rows($run);
-    if($row < 1){
-        ?>
-        <script>
-        alert('Username or Password not match');
-        window.open('adminlogin.php','_self');
-        </script>
-        <?php
-    }
-    else if($row==1 && $usertype=="admin"){
-        $data = mysqli_fetch_assoc($run);
-        $id = $data['id'];
-        session_start();
-        $_SESSION['fromMain'] = "true";
-        header('location:admindash.php');
-    }
-    else if($row==1 && $usertype=="student"){
-        $data = mysqli_fetch_assoc($run);
-        $id = $data['id'];
-        session_start();
-        $_SESSION['fromMain'] = "true";
-        header('location:StudentDash.php');
-    }
-    else if($row==1 && $usertype=="teacher"){
-        $data = mysqli_fetch_assoc($run);
-        $id = $data['id'];
-        session_start();
-        $_SESSION['fromMain'] = "true";
-        header('location:teacherdash.php');
-    }
+$ref=@$_GET['q'];
+$email = $_POST['un'];
+$password = $_POST['ps'];
 
+$result = mysqli_query($con,"SELECT email FROM admin WHERE email = '$email' and password = '$password' and role = 'head'") or die('Error');
+$count=mysqli_num_rows($result);
+if($count==1){
+session_start();
+if(isset($_SESSION['email'])){
+session_unset();}
+$_SESSION["name"] = 'Admin';
+$_SESSION["key"] ='letspractice';
+$_SESSION["email"] = $email;
+header("location:headdash.php?q=0");
+}
+else header("location:$ref?w=Warning : Access denied");
 }
 ?>
-<?php
 
+<?php
 require_once("footer.php");
 ?>
